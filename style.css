@@ -318,7 +318,7 @@ background:#f4f6fb;
 
 /* Login box */
 .login-box{
-width:320px;
+width:300px;
 padding:30px;
 background:white;
 border-radius:10px;
@@ -351,3 +351,4 @@ cursor:pointer;
 .login-box button:hover{
 background:#2f5aa8;
 }
+
