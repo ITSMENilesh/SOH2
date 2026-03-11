@@ -275,13 +275,11 @@ color:green;
 font-weight:bold;
 }
 
-/* ========================= */
-/* LOGIN PAGE */
-/* ========================= */
+/* LOGIN PAGE IMPROVEMENT */
 
 .container{
 display:flex;
-height:100vh;
+height:calc(100vh - 70px);
 }
 
 .left{
@@ -292,6 +290,22 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+text-align:center;
+}
+
+.left h1{
+font-size:34px;
+margin-bottom:10px;
+}
+
+.left p{
+opacity:0.8;
+}
+
+.login-icon{
+font-size:60px;
+margin-top:20px;
+opacity:0.8;
 }
 
 .right{
@@ -305,25 +319,47 @@ background:#f4f6fb;
 .login-box{
 background:white;
 padding:40px;
-border-radius:10px;
-box-shadow:0 6px 15px rgba(0,0,0,0.1);
-width:300px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+width:320px;
+}
+
+.login-box h2{
+margin-bottom:20px;
+}
+
+.input-box{
+position:relative;
+}
+
+.input-box i{
+position:absolute;
+left:10px;
+top:12px;
+color:#888;
 }
 
 .login-box input{
 width:100%;
-padding:10px;
-margin-top:10px;
-border-radius:5px;
+padding:10px 10px 10px 35px;
+border-radius:6px;
 border:1px solid #ccc;
+margin-top:5px;
 }
 
 .login-box button{
 margin-top:20px;
 width:100%;
-padding:10px;
+padding:12px;
 background:#2e6bd1;
 color:white;
 border:none;
-border-radius:5px;
+border-radius:6px;
+font-size:15px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.login-box button:hover{
+background:#1f4fa5;
 }
