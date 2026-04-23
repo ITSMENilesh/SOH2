@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Submit Query - Student Helpdesk</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+<h2>Student Helpdesk</h2>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="login.html">Login</a>
+<a href="submit_query.html">Submit Query</a>
+<a href="admin.html">Admin</a>
+</div>
+</div>
+
+
+<!-- Query Form Section -->
+<div class="query-container">
+
+<div class="query-box">
+
+<h2>Submit Your Query</h2>
+
+<form onsubmit="submitQuery(event)">
+  <label>Student Name</label>
+  <input type="text" id="name" required>
+
+  <label>Student ID</label>
+  <input type="text" id="studentId" required>
+
+  <label>Email</label>
+  <input type="email" id="email" required>
+
+  <label>Issue Type</label>
+  <select id="issueType">
+    <option>Fees Issue</option>
+    <option>Exam Issue</option>
+    <option>Technical Issue</option>
+    <option>Attendance Issue</option>
+    <option>Other</option>
+  </select>
+
+  <label>Description</label>
+  <textarea id="description" rows="5" required></textarea>
+
+  <button type="submit">Submit Query</button>
+</form>
+
+</div>
+
+</div>
+
+
+<!-- Footer -->
+<div class="footer">
+<p>Student Online Helpdesk System</p>
+</div>
+<script>
+async function submitQuery(e){
+  e.preventDefault();
+
+  const data = {
+    name: document.getElementById("name").value,
+    studentId: document.getElementById("studentId").value,
+    email: document.getElementById("email").value,
+    issueType: document.getElementById("issueType").value,
+    description: document.getElementById("description").value
+  };
+
+  await fetch("http://localhost:5000/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  alert("Query Submitted!");
+
+  // ✅ redirect after submit
+  window.location.href = "preview.html";
+}
+</script>
+
+</body>
+</html>

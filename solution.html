@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Solution Status</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+<h2>Student Helpdesk</h2>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="submit_query.html">Submit Query</a>
+<a href="preview.html">Preview</a>
+</div>
+</div>
+
+<div class="table-container">
+
+<h2>Query Solution Status</h2>
+
+<table id="solutionTable">
+<tr>
+  <th>Student</th>
+  <th>Issue</th>
+  <th>Status</th>
+</tr>
+</table>
+
+</div>
+
+<div class="footer">
+<p>Student Online Helpdesk System</p>
+</div>
+
+<script>
+async function loadSolutions(){
+  let res = await fetch("http://localhost:5000/queries");
+  let data = await res.json();
+
+  let table = document.getElementById("solutionTable");
+
+  data.forEach(q => {
+    let row = table.insertRow();
+
+    row.innerHTML = `
+      <td>${q.name}</td>
+      <td>${q.issueType}</td>
+      <td class="${q.status === 'Solved' ? 'solved' : 'pending'}">
+        ${q.status}
+      </td>
+    `;
+  });
+}
+
+loadSolutions();
+</script>
+</body>
+</html>
